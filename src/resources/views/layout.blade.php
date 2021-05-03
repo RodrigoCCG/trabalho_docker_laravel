@@ -14,7 +14,7 @@
         width: 100%;
         height: auto;
         background-color: #767676;
-        padding: 0;
+        padding: 0px 0px 10px 0px;
         z-index: 0;
     }
     #container {
@@ -51,8 +51,15 @@
     <div class="container">
         <nav id="navbar">
             <ul>
-                <li><a href="/posts" id="nav-item">Home</a></li>
-                <li><a href="/posts/create" id="nav-item">Criar</a></li>
+                <div style="float: left;">
+                    <li><a href="/" id="nav-item">Home</a></li>
+                    <li><a href="/posts" id="nav-item">Navegar</a></li>
+                    <li><a href="/posts/create" id="nav-item">Criar</a></li>
+                </div>
+                <div style="float: right;">
+                    <li><a href="/auth/login" id="nav-item">Login</a></li>
+                    <li><a href="/auth/register" id="nav-item">Registrar</a></li>
+                </div>
             </ul>     
         </nav>
     </div>

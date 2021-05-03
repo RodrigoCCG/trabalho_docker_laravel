@@ -1,9 +1,9 @@
-@extends('posts.layout')
+@extends('layout')
  
 @section('content')
     <div class="row" style="padding: 10px;">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - laravelcode.com</h2>
+                <h2>Lista de Postagens</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New Post</a>
@@ -18,14 +18,12 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
+            <th>Titulo</th>
+            <th>Preview</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($data as $key => $value)
         <tr>
-            <td>{{ ++$i }}</td>
             <td>{{ $value->title }}</td>
             <td>{{ \Str::limit($value->description, 100) }}</td>
             <td>
