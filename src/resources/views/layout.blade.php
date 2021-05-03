@@ -56,10 +56,11 @@
                     <li><a href="/posts" id="nav-item">Navegar</a></li>
                     <li><a href="/posts/create" id="nav-item">Criar</a></li>
                 </div>
-                <div style="float: right;">
+                <!--<div style="float: right;">
                     <li><a href="/auth/login" id="nav-item">Login</a></li>
                     <li><a href="/auth/register" id="nav-item">Registrar</a></li>
                 </div>
+                -->
             </ul>     
         </nav>
     </div>

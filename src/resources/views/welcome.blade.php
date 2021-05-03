@@ -55,6 +55,8 @@
     <h1 class="center" style="border: 5px solid #5A5; border-radius: 10px; padding:20px;">Bem vindo ao Blog!</h1>
     <div class="center">
         <a href="/posts" class="navegar">Navegar</a>
+        <!--
         <a href="/login" class="login">Login</a>
+-->
     </div>
 @endsection
