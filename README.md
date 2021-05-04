@@ -22,3 +22,61 @@ nginx (stable-alpine) para backend e PHP (7.4-fpm-alpine) para programacao. Util
 </ul>
 
 <p>Acessivel pela porta <a href="http://localhost:8088/" target="_blank" >http://localhost:8088/</a></p>
+<h3>Dockerfile</h3>
+<code>
+FROM php:7.4-fpm-alpine
+RUN docker-php-ext-install pdo pdo_mysql
+COPY ./src ./src
+COPY ./mysql ./mysql
+COPY ./nginx ./nginx
+</code>
+<h3>docker-compose.yml</h3>
+<code>version: '3'
+networks:
+    laravel:
+
+services:
+    nginx:
+        image: nginx:stable-alpine
+        container_name: nginx
+        ports: 
+            - "8088:80"
+        volumes: 
+            - ./src:/var/www/html 
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on: 
+            - mysql
+            - php
+        networks: 
+            - laravel
+
+    mysql:
+        image: mysql:latest
+        container_name: mysql
+        restart: unless-stopped
+        tty: true
+        ports: 
+            - "3306:3306"
+        volumes: 
+            - ./mysql:/var/lib/mysql
+        environment: 
+            MYSQL_DATABASE: homestead
+            MYSQL_USER: homestead
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: secret
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        networks: 
+            - laravel
+
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: php
+        volumes: 
+            - ./src:/var/www/html
+        ports: 
+            - "9000:9000"
+        networks: 
+            - laravel</code>
