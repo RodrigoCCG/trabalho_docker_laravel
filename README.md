@@ -20,3 +20,5 @@ nginx (stable-alpine) para backend e PHP (7.4-fpm-alpine) para programacao. Util
         <a href="https://www.laravelcode.com/post/laravel-8-crud-application-tutorial-with-example" target="_blank">Laravel CRUD application tutorial with Example.</a>
     </li>
 </ul>
+
+<p>Acessivel pela porta <a href="http://localhost:8088/" target="_blank" >http://localhost:8088/</a></p>
